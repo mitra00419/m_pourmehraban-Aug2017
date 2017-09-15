@@ -70,4 +70,69 @@ public class Calculate {
 	public static String foil(int a, int b, int c, int d, String letter) {
 			return (a * b + letter + "^2") + "+" + ((a * d) + (b * c) + letter) + "+" + (b * d);
 	}
+/* This method takes two integers and determines if one integer if divisible by the other.
+ *
+ */
+	public static boolean isDivisibleBy(int dividend, int divisor) {
+			if(dividend % divisor == 0) {
+				return true; }
+			}else {
+				return false;
+}
+	}
+/* This method takes a double and returns the absolute value of that double.
+ *
+ */
+	public static double absValue(double number) {
+		if(number < 0) {
+			return number * -1;
+}else {
+return number;			
+		}
+	}
+/* This method takes a two numbers and determines the max of the values.
+ *
+ */
+	public static double max(double num1, double num2) {
+		if(num1 > num2) {
+			return num1;
+		}else {
+			return num2;
+		}
+	}
+/* This method takes a three numbers and determines the max of the values.
+ *
+ */
+public static double max(double num1, double num2, double num3) {
+		if(num1 > num2 & num1 > num3) {
+			return num1;
+		}else if (num2 > num1 & num2 > num3) {
+			return num2;
+		} else {
+			return num3;
+		}
+	}
+/* This method takes a two numbers and determines the min of the values.
+ *
+ */
+public static double min(double num1, double num2) {
+if(num1 <= num2) {
+		Return num1;
+	}else {
+		Return num2;
+	}
+}
+/* This method rounds a number to two decimal places.
+ *
+ */
+	Public static double round2(double number) {
+	number = number * 1000;
+	if (number % 10 < 5) {
+		number = number - (number % 10);
+		return number / 1000;
+	} else {
+		number = number - (number % 10) + 10;
+		return number / 1000;
+	}
+
 }
