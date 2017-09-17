@@ -168,4 +168,24 @@ public class Calculate {
 			return number / 1000;
 		}
 	}
+	/*
+	 * This method takes a double and an integer and uses the double as the base
+	 * and the integer as the exponent. It calculates this and returns a double.
+	 */
+	public static double exponent(double base, int exponent) {
+		int result = base;
+		if (exponent == 0) {
+			result = 1;
+		}
+		if (exponent < 0) {
+			base = (1.0 / base);
+			exponent = -exponent;
+		}	
+		for (int counter = 1; counter <= exponent; counter++) {
+			result = result * base;
+			return result;
+		}
+	}
+	
+
 }
