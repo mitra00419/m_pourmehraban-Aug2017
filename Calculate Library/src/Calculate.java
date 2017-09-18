@@ -184,5 +184,56 @@ public class Calculate {
 		}
 		return result;
 		}
+	/*
+	 * This method takes an integer and returns its factorial
+	 *  
+	 */
+	public static int factorial(int n) {
+		int result = 1;
+		for (int i = 1; i <= n; i++) {
+			   result = result * i;
+			}
+		return result;
+		}
+	/*
+	 * This method determines whether or not the integer entered is
+	 * a prime number. It returns true or false
+	 */
+
+	public static boolean isPrime(int number) {
+		boolean answer;
+		for (int counter = number - 1; counter > 1; counter--) {
+			answer = Calculate.isDivisibleBy(number, counter);
+			if (answer == true) {
+					return (false);
+			}
+		}
+		return (true);
+	}
+	/*
+	 * This method takes tow positive integers and returns the greatest
+	 * common factor of the two integers
+	 */
+	/* public static int gcf(int a, int b) {
+		boolean numb;
+		numb = Calculate.isDivisibleBy(a, b);
+		if (numb == true) {
+		}
+		return(b);
 		
-}
+	}
+	*/
+	public static int gcf(int a, int b){
+		int gfc = 1;
+		for(int i=1; i<= a; i++){
+			if(isDivisibleBy(a,i) && isDivisibleBy(b, i)){
+				gfc =1;
+			}
+		}
+		return(gfc);
+	}
+	
+	
+	
+	
+	}
