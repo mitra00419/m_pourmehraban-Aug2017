@@ -214,26 +214,23 @@ public class Calculate {
 	 * This method takes tow positive integers and returns the greatest
 	 * common factor of the two integers
 	 */
-	/* public static int gcf(int a, int b) {
-		boolean numb;
-		numb = Calculate.isDivisibleBy(a, b);
-		if (numb == true) {
-		}
-		return(b);
-		
-	}
-	*/
+	
 	public static int gcf(int a, int b){
 		int gfc = 1;
-		for(int i=1; i<= a; i++){
-			if(isDivisibleBy(a,i) && isDivisibleBy(b, i)){
-				gfc =1;
+		for (int i=1; i<= a; i++){
+			if (isDivisibleBy(a,i) && isDivisibleBy(b, i)){
+				gfc =i;
 			}
 		}
 		return(gfc);
 	}
-	
-	
+	/*
+	 * This method return the approximation of the square root
+	 * of double given and rounds it to two decimal places.
+	 */
+	public static double sqrt(double num) {
+		
+	}
 	
 	
 	}
