@@ -97,12 +97,11 @@ public class Calculate {
 	 *
 	 */
 	public static boolean isDivisibleBy(int dividend, int divisor) {
-		if (dividend % divisor == 0) {
-			return true;
-		} else {
-			return false;
+		if (divisor == 0) {
+			throw new IllegalArgumentException("Cannot divide by 0");
 		}
-	}
+		return dividend % divisor == 0;
+		}
 
 	/*
 	 * This method takes a double and returns the absolute value of that double.
@@ -159,13 +158,13 @@ public class Calculate {
 	 *
 	 */
 	public static double round2(double number) {
-		number = number * 1000;
-		if (number % 10 < 5) {
-			number = number - (number % 10);
-			return number / 1000;
-		} else {
-			number = number - (number % 10) + 10;
-			return number / 1000;
+		if(number % 0.01 > 0.00499999999){
+			return (0.01 + number - (number % 0.01));
+		}else if(number % 0.01 < -0.004999999999 && number < 0) {
+			return (number - (number % 0.01) - 0.01);
+		}
+		else {
+			return (number - (number % 0.01));
 		}
 	}
 	/*
@@ -189,6 +188,9 @@ public class Calculate {
 	 *  
 	 */
 	public static int factorial(int n) {
+		if (n < 0 ) {
+			throw new IllegalArgumentException("Cannot find the factorial of a negative number");
+		}
 		int result = 1;
 		for (int i = 1; i <= n; i++) {
 			   result = result * i;
@@ -229,8 +231,31 @@ public class Calculate {
 	 * of double given and rounds it to two decimal places.
 	 */
 	public static double sqrt(double num) {
+		if(num < 0) {
+			throw new IllegalArgumentException("Cannot find the square root of a negative value");
+		}
+		double i;
+			for(i = 0; (i * i) < num; i++) {}
+				while(i * i > num) {
+					i -= 0.1;
+				}
+				while(i * i < num) {
+					i += 0.01;
+				}
+				while(i * i > num) {
+					i -= 0.001;
+				}
+		i = round2(i);
+		return i;
+	}
+	/* This method returns
+	 * 
+	 */
+	public static String quadForm (int a, int b, int c) {	
 		
 	}
+	/*
+	 * 
+	 */
+}
 	
-	
-	}
