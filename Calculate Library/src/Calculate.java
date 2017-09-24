@@ -25,8 +25,8 @@ public class Calculate {
 	 * 
 	 */
 	public static double average(double operand1, double operand2) {
-		double average = (operand1 + operand2) / 2;
-		return average;
+		double total = operand1 + operand2 ;
+		return total / 2;
 	}
 
 	/*
@@ -96,7 +96,7 @@ public class Calculate {
 	 * the other.
 	 *
 	 */
-	public static boolean isDivisibleBy(int dividend, int divisor) {
+	public static boolean isDivisibleBy(double dividend, int divisor) {
 		if (divisor == 0) {
 			throw new IllegalArgumentException("Cannot divide by 0");
 		}
@@ -158,13 +158,13 @@ public class Calculate {
 	 *
 	 */
 	public static double round2(double number) {
-		if(number % 0.01 > 0.00499999999){
-			return (0.01 + number - (number % 0.01));
-		}else if(number % 0.01 < -0.004999999999 && number < 0) {
-			return (number - (number % 0.01) - 0.01);
-		}
-		else {
-			return (number - (number % 0.01));
+		number = number * 1000;
+		if (number % 10 < 5) {
+			number = number - (number % 10);
+			return number / 1000;
+		} else {
+			number = number - (number % 10) + 10;
+			return number / 1000;
 		}
 	}
 	/*
@@ -172,14 +172,12 @@ public class Calculate {
 	 * and the integer as the exponent. It calculates this and returns a double.
 	 */
 	public static double exponent(double base, double exponent) {
-		double result = 1;
-		if (exponent < 0) {
-			base = 1.0 / base;
-			exponent = -exponent;
+		if (exponent < 1) {
+			throw new IllegalArgumentException("Cannot raise to an exponent less than 1");
 		}
-		while (exponent > 0) {
+		double result = 1;
+		for(int i = 0; i < exponent; i++) {
 			result = result * base;
-			exponent = exponent - 1;
 		}
 		return result;
 		}
@@ -213,7 +211,7 @@ public class Calculate {
 		return (true);
 	}
 	/*
-	 * This method takes tow positive integers and returns the greatest
+	 * This method takes two positive integers and returns the greatest
 	 * common factor of the two integers
 	 */
 	
@@ -252,11 +250,26 @@ public class Calculate {
 	 * 
 	 */
 	public static String quadForm (int a, int b, int c) {	
+		if(discriminant(a, b, c) < 0 ) {
+			return "No real roots";
+		}else if (discriminant(a, b, c) == 0) {
+			double realroot = (-b / (2 * a));
+			double realrootrounded = round2(realroot);
+				return "" + realrootrounded;
+			}else {
+			double root1 = (-b + sqrt(discriminant(a, b, c))) / (2 * a);
+			double root2 = (-b - sqrt(discriminant(a, b, c))) / (2 * a);
+			double roundedroot1 = round2(root1);
+			double roundedroot2 = round2(root2);
+			if (min(roundedroot1, roundedroot2) == roundedroot1) {
+				return root1 + " and " + root2;
+			}else {
+				return root2 + " and " + root1;
+			}
+		}
 		
 	}
-	/*
-	 * 
-	 */
-
+	
+	
 }
 	
