@@ -171,11 +171,14 @@ public class Calculate {
 	 * This method takes a double and an integer and uses the double as the base
 	 * and the integer as the exponent. It calculates this and returns a double.
 	 */
-	public static double exponent(double base, double exponent) {
-		if (exponent < 1) {
+	public static double exponent(double base, int exponent) {
+		if (exponent < 0) {
 			throw new IllegalArgumentException("Cannot raise to an exponent less than 1");
 		}
 		double result = 1;
+		if (exponent == 1) {
+			result = 1;
+		}
 		for(int i = 0; i < exponent; i++) {
 			result = result * base;
 		}
@@ -186,15 +189,20 @@ public class Calculate {
 	 *  
 	 */
 	public static int factorial(int n) {
-		if (n < 0 ) {
+		if (n < 0) {
 			throw new IllegalArgumentException("Cannot find the factorial of a negative number");
 		}
 		int result = 1;
-		for (int i = 1; i <= n; i++) {
-			   result = result * i;
-			}
-		return result;
+		if (n == 0) {
+			result = 1;
 		}
+		while(n > 0) {
+			result = n * result;
+			n--;
+		}
+		return result;
+	}
+		
 	/*
 	 * This method determines whether or not the integer entered is
 	 * a prime number. It returns true or false
@@ -223,17 +231,19 @@ public class Calculate {
 			}
 		}
 		return(gfc);
+
+	}
 	}
 	/*
 	 * This method return the approximation of the square root
 	 * of double given and rounds it to two decimal places.
 	 */
-	public static double sqrt(double num) {
+	/*public static double sqrt(double num) {
 		if(num < 0) {
 			throw new IllegalArgumentException("Cannot find the square root of a negative value");
 		}
 		double i;
-			for(i = 0; (i * i) < num; i++) {}
+		for(i = 0; (i * i) < num; i++) {
 				while(i * i > num) {
 					i -= 0.1;
 				}
@@ -245,11 +255,12 @@ public class Calculate {
 				}
 		i = round2(i);
 		return i;
+		}
 	}
-	/* This method returns
-	 * 
+	/* This method returns the number and value of the roots
+	 * of a function
 	 */
-	public static String quadForm (int a, int b, int c) {	
+	/*public static String quadForm (int a, int b, int c) {	
 		if(discriminant(a, b, c) < 0 ) {
 			return "No real roots";
 		}else if (discriminant(a, b, c) == 0) {
@@ -268,8 +279,7 @@ public class Calculate {
 			}
 		}
 		
-	}
+	}*/
 	
-	
-}
+
 	
