@@ -225,7 +225,7 @@ public class Calculate {
 	
 	public static int gcf(int a, int b){
 		int gfc = 1;
-		for (int i=1; i<= a; i++){
+		for (int i=1; i <= a; i++){
 			if (isDivisibleBy(a,i) && isDivisibleBy(b, i)){
 				gfc =i;
 			}
@@ -233,30 +233,31 @@ public class Calculate {
 		return(gfc);
 
 	}
-	}
+	
 	/*
 	 * This method return the approximation of the square root
 	 * of double given and rounds it to two decimal places.
 	 */
-	/*public static double sqrt(double num) {
+	public static double sqrt(double num) {
 		if(num < 0) {
 			throw new IllegalArgumentException("Cannot find the square root of a negative value");
 		}
 		double i;
-		for(i = 0; (i * i) < num; i++) {
-				while(i * i > num) {
-					i -= 0.1;
-				}
-				while(i * i < num) {
-					i += 0.01;
-				}
-				while(i * i > num) {
-					i -= 0.001;
-				}
+		for(i = 0; (i * i) < num; i++) {}
+		while((i * i) > num) {
+			i -= 0.1;
+			}
+		while(i * i < num) {
+			i += 0.01;
+			}
+		while(i * i > num) {
+			i -= 0.001;
+			}
 		i = round2(i);
-		return i;
+				return i;
 		}
 	}
+
 	/* This method returns the number and value of the roots
 	 * of a function
 	 */
