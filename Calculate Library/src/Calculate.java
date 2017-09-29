@@ -253,34 +253,32 @@ public class Calculate {
 		while(i * i > num) {
 			i -= 0.001;
 			}
-		i = round2(i);
-				return i;
-		}
+		return round2(i);
 	}
 
 	/* This method returns the number and value of the roots
 	 * of a function
 	 */
-	/*public static String quadForm (int a, int b, int c) {	
+	public static String quadForm (int a, int b, int c) {	
 		if(discriminant(a, b, c) < 0 ) {
 			return "No real roots";
 		}else if (discriminant(a, b, c) == 0) {
-			double realroot = (-b / (2 * a));
-			double realrootrounded = round2(realroot);
-				return "" + realrootrounded;
-			}else {
-			double root1 = (-b + sqrt(discriminant(a, b, c))) / (2 * a);
-			double root2 = (-b - sqrt(discriminant(a, b, c))) / (2 * a);
+			double realroot = -b / (2.0 * a);
+			return "" + realroot;
+		}else {
+			double squarerootdisc = sqrt(discriminant(a, b, c));
+			double root1 = (-b + squarerootdisc) / (2 * a);
+			double root2 = (-b - squarerootdisc) / (2 * a);
 			double roundedroot1 = round2(root1);
 			double roundedroot2 = round2(root2);
 			if (min(roundedroot1, roundedroot2) == roundedroot1) {
-				return root1 + " and " + root2;
+				return roundedroot1 + " and " + roundedroot2;
 			}else {
-				return root2 + " and " + root1;
+				return roundedroot2 + " and " + roundedroot1;
 			}
 		}
-		
-	}*/
-	
+	}	
+}
+
 
 	

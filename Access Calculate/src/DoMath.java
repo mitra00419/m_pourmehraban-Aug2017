@@ -11,7 +11,7 @@ public class DoMath {
 		System.out.println(Calculate.average(4,5,6));
 		System.out.println(Calculate.toDegrees(3.14159));
 		System.out.println(Calculate.toRadians(180));
-		System.out.println(Calculate.discriminant(2.1, 1.6, 3.1));
+		System.out.println(Calculate.discriminant(4, 4, 1));
 		System.out.println(Calculate.toImproperFrac(3, 1, 2));
 		System.out.println(Calculate.toMixedNum(7, 2));
 		System.out.println(Calculate.foil(2, 3, 6, -7, "n"));
@@ -26,6 +26,6 @@ public class DoMath {
 		System.out.println(Calculate.isPrime(7));
 		System.out.println(Calculate.gcf(5, 7));
 		System.out.println(Calculate.sqrt(7.0));
-		/*System.out.println(Calculate.quadForm(1, -4, 4));*/
+		System.out.println(Calculate.quadForm(2, 3, 5));
 		}
 	}
