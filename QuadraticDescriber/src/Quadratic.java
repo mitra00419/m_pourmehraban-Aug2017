@@ -4,11 +4,29 @@
  */
 public class Quadratic {
 	public static String quadrDescriber (double a, double b, double c) {
-	
 		
+		if (a == 0) {
+			 throw new IllegalArgumentException("The coefficient for x^2 cannot have a value of 0");
+		}
+		
+		String facingDirection = "";
+		if (a < 0) {
+			facingDirection = "Opens: Down";
+		} else {
+			facingDirection = "Opens: Up";
+		}
+		
+		String axisOfSymm = "Axis of Symmetry: " + round2((-b / a / 2));
+		
+		String vertex = completeSquare(a, b, c);
+		
+		String intX = "x-intercept(s): " + quadForm(a, b, c);
+		
+		String intY = "y-intercept: " + c;
+		
+		return facingDirection + "\n" + axisOfSymm + "\n" + vertex + "\n" + intX + "\n" + intY;
 		
 	}
-	
 	
 	public static double min(double num1, double num2) {
 		if (num1 <= num2) {
@@ -52,9 +70,9 @@ public class Quadratic {
 		return round2(i);
 	}
 	
-	public static String quadForm (int a, int b, int c) {	
+	public static String quadForm (double a, double b, double c) {	
 		if(discriminant(a, b, c) < 0 ) {
-			return "No real roots";
+			return "None";
 		}else if (discriminant(a, b, c) == 0) {
 			double realroot = -b / (2.0 * a);
 			return "" + realroot;
@@ -62,8 +80,8 @@ public class Quadratic {
 			double squarerootdisc = sqrt(discriminant(a, b, c));
 			double root1 = (-b + squarerootdisc) / (2 * a);
 			double root2 = (-b - squarerootdisc) / (2 * a);
-			double roundedroot1 = round2(root1);
-			double roundedroot2 = round2(root2);
+			double roundedroot1 = round2((root1));
+			double roundedroot2 = round2((root2));
 			if (min(roundedroot1, roundedroot2) == roundedroot1) {
 				return roundedroot1 + " and " + roundedroot2;
 			}else {
@@ -75,6 +93,6 @@ public class Quadratic {
 	public static String completeSquare(double a, double b, double c) {
 		double xValue = round2(-b / a / 2);
 		double yValue = round2(c - (xValue * xValue * a));
-		return "The vertex is at (" + xValue + "," + yValue + ").";
+		return "Vertex: (" + xValue + ", " + yValue + ")";
 	}
 }
