@@ -4,6 +4,7 @@
  * mathematical methods.
  */
 public class Calculate {
+	
 	/*
 	 * This method takes an integer and returns its square.
 	 * 
