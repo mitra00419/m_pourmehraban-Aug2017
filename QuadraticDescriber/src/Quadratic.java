@@ -5,6 +5,9 @@
 public class Quadratic {
 	public static String quadrDescriber (double a, double b, double c) {
 		
+		System.out.println("Description of the graph of:");
+		System.out.println("y = " + a + " x^2 + " + b + " x + " + c);
+		
 		if (a == 0) {
 			 throw new IllegalArgumentException("The coefficient for x^2 cannot have a value of 0");
 		}
@@ -44,14 +47,11 @@ public class Quadratic {
 	public static double round2(double number) {
 		number = number * 1000;
 		if (number % 10 < 5) {
-			number = number - (number % 10);
-			return number / 1000;
+			return (number - (number % 10)) / 1000;
 		} else {
-			number = number - (number % 10) + 10;
-			return number / 1000;
-		}
+			return (number - (number % 10)) / 1000;
 	}
-	
+}
 	public static double sqrt(double num) {
 		if(num < 0) {
 			throw new IllegalArgumentException("Cannot find the square root of a negative value");
@@ -67,7 +67,8 @@ public class Quadratic {
 		while(i * i > num) {
 			i -= 0.001;
 			}
-		return round2(i);
+		i = round2(i);
+		return i;
 	}
 	
 	public static String quadForm (double a, double b, double c) {	
