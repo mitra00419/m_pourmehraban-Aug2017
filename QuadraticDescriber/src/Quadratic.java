@@ -45,12 +45,17 @@ public class Quadratic {
 	}
 	
 	public static double round2(double number) {
-		number = number * 1000;
-		if (number % 10 < 5) {
-			return (number - (number % 10)) / 1000;
-		} else {
-			return (number - (number % 10)) / 1000;
-	}
+		double result = 0.0;
+		int tempInt = (int)(number * 1000);
+		int roundNum = tempInt % 10;
+		tempInt = tempInt / 10;
+		if (roundNum >= 5 && tempInt < 0) {
+			tempInt++;
+		} else if(roundNum <= -5 && tempInt < 0) {
+			tempInt--;
+		}
+		result = tempInt / 100.0;
+		return result;
 }
 	public static double sqrt(double num) {
 		if(num < 0) {
