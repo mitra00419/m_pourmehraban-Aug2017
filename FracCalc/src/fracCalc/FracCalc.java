@@ -31,7 +31,7 @@ public class FracCalc {
 			String operator = inputArray[1];
 			Fraction frac1 = new Fraction(inputArray[0]);
 			Fraction frac2 = new Fraction(inputArray[2]);
-			Fraction output = doStuff(operator, frac1, frac2);
+			Fraction output = doStuff(operator, frac1, frac2); 
 			if (inputArray.length > 3) {
 				for (int i = 3; i < inputArray.length - 1; i += 2) {
 					Fraction nextOperand = new Fraction(inputArray[i + 1]);
