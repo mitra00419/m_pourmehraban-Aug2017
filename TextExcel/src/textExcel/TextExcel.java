@@ -10,7 +10,8 @@ public class TextExcel
 	public static Spreadsheet sheet1 = new Spreadsheet();
 	public static void main(String[] args)
 	{
-	    Scanner myScanner = new Scanner(System.in);
+		System.out.println("Welcome to Spreadsheet! Please Begin...");
+		Scanner myScanner = new Scanner(System.in);
 	    String userIn;
 	    
 	    while (true) {
